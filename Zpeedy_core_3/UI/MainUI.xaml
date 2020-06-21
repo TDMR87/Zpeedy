@@ -16,6 +16,10 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Images/bg1.png" />
+        </Grid.Background>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
@@ -103,7 +107,7 @@
             VerticalAlignment="Center"
             Grid.Row="3"
             FontSize="10"
-            FontWeight="ExtraLight"
+            FontWeight="Light"
             FontStyle="Italic"
             FontFamily="Georgia"/>
     </Grid>

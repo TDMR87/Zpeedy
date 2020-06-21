@@ -4,9 +4,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>stopwatch1.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bg1.png" />
     <None Remove="Images\loading_io_ball.gif" />
     <None Remove="Images\loading_io_ellipsis.gif" />
     <None Remove="Images\loading_io_pulse.gif" />
@@ -22,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\bg1.png" />
     <Resource Include="Images\loading_io_ball.gif" />
     <Resource Include="Images\loading_io_ellipsis.gif" />
     <Resource Include="Images\loading_io_pulse.gif" />
