@@ -35,14 +35,14 @@
                 <MenuItem Header="Settings">
                 <MenuItem 
                     Header="1MB" 
-                    IsCheckable="True" 
-                    IsChecked="True" 
+                    IsCheckable="True"                    
                     Command="{Binding SmallTestCommand}" 
                     StaysOpenOnClick="True"
                     Click="MenuItemTestSize_Clicked"/>
                     
                 <MenuItem 
                     Header="10MB" 
+                    IsChecked="True" 
                     IsCheckable="True" 
                     Command="{Binding MediumTestCommand}" 
                     StaysOpenOnClick="True"
