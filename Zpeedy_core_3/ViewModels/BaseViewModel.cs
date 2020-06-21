@@ -1,6 +1,10 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Zpeedy_core_3
 {
@@ -8,18 +12,22 @@ namespace Zpeedy_core_3
     {
         protected CancellationTokenSource cancellationSource;
         protected CancellationToken cancellationToken;
-
-        /// <summary>
-        /// This event fires for any property changes.
-        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        public BaseViewModel()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.SmallTestCommand = new RelayCommand(SmallTestSelected);
+            this.MediumTestCommand = new RelayCommand(MediumTestSelected);
+            this.LargeTestCommand = new RelayCommand(LargeTestSelected);
+            this.ExitCommand = new RelayCommand(Exit);
+
+            // Set the default test when app is opened for the first time.
+            SpeedTestUrl = Constants.MediumTest;
         }
 
         #region Properties
+        protected string SpeedTestUrl { get; set; }
+
         private string _loaderVisibility;
         public string LoaderVisibility
         {
@@ -63,13 +71,13 @@ namespace Zpeedy_core_3
                 // Loader image is shown when busy
                 if (_isBusy)
                 {
-                    LoaderVisibility = Visible;
-                    StartButtonVisibility = Hidden;
+                    LoaderVisibility = Constants.Visible;
+                    StartButtonVisibility = Constants.Hidden;
                 }
                 else
                 {
-                    LoaderVisibility = Hidden;
-                    StartButtonVisibility = Visible;
+                    LoaderVisibility = Constants.Hidden;
+                    StartButtonVisibility = Constants.Visible;
                 }
 
                 PropertyChanged(this, new PropertyChangedEventArgs(nameof(IsBusy)));
@@ -79,7 +87,37 @@ namespace Zpeedy_core_3
         }
         #endregion
 
-        public const string Visible = "Visible";
-        public const string Hidden = "Hidden";
+        #region Commands
+        public ICommand SmallTestCommand { get; set; }
+        public ICommand MediumTestCommand { get; set; }
+        public ICommand LargeTestCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
+        #endregion
+
+        #region Methods
+        private void SmallTestSelected()
+        {
+            SpeedTestUrl = Constants.SmallTest;
+        }
+
+        private void MediumTestSelected()
+        {
+            SpeedTestUrl = Constants.MediumTest;
+        }
+
+        private void LargeTestSelected()
+        {
+            SpeedTestUrl = Constants.LargeTest;
+        }
+        private void Exit()
+        {
+            Application.Current.Shutdown();
+        }
+        #endregion
+
+        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

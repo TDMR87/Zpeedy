@@ -8,8 +8,12 @@ namespace Zpeedy_core_3
     public class Constants
     {
         public const string AppTitle = "Zpeedy";
-        public const string SmallFile = @"http://speedtest.tele2.net/10MB.zip";
-        public const string MediumFile = @"http://speedtest.tele2.net/100MB.zip";
-        public const string LargeFile = @"http://speedtest.tele2.net/10GB.zip";
+        public const string SmallTest = @"http://speedtest.tele2.net/1MB.zip";
+        public const string MediumTest = @"http://speedtest.tele2.net/10MB.zip";
+        public const string LargeTest = @"http://speedtest.tele2.net/100MB.zip";
+
+        // Values for Image-control visibility
+        public const string Visible = "Visible";
+        public const string Hidden = "Hidden";
     }
 }

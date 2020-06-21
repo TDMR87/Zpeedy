@@ -14,7 +14,7 @@ namespace Zpeedy_core_3
     {       
         public MainUIViewModel()
         {
-            LoaderVisibility = Hidden;
+            LoaderVisibility = Constants.Hidden;
 
             // Instantiate commands.
             this.ExecuteSpeedTestCommand = new RelayCommand(ExecuteSpeedTest);
@@ -48,6 +48,7 @@ namespace Zpeedy_core_3
         #region Commands
         public ICommand ExecuteSpeedTestCommand { get; set; }
         public ICommand StopSpeedTestCommand { get; set; }
+        
         #endregion
 
         #region Methods
@@ -76,7 +77,7 @@ namespace Zpeedy_core_3
 
                 // Perform a GET request
                 using var result = await httpClient.GetAsync(
-                                   Constants.SmallFile, 
+                                   SpeedTestUrl, 
                                    HttpCompletionOption.ResponseContentRead,
                                    cancellationToken);
 

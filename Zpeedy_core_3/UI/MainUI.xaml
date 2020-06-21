@@ -15,53 +15,83 @@
         WindowStyle="SingleBorderWindow" 
         WindowStartupLocation="CenterScreen">
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="../Images/bg1.png" />
-        </Grid.Background>
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="../Images/bg1.png" />
+            </Grid.Background>
 
-        <Label 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Menu DockPanel.Dock="Top" Grid.Row="0">
+                <MenuItem Header="File">
+                    <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+                </MenuItem>
+                <MenuItem Header="Settings">
+                <MenuItem 
+                    Header="1MB" 
+                    IsCheckable="True" 
+                    IsChecked="True" 
+                    Command="{Binding SmallTestCommand}" 
+                    StaysOpenOnClick="True"
+                    Click="MenuItemTestSize_Clicked"/>
+                    
+                <MenuItem 
+                    Header="10MB" 
+                    IsCheckable="True" 
+                    Command="{Binding MediumTestCommand}" 
+                    StaysOpenOnClick="True"
+                    Click="MenuItemTestSize_Clicked"/>
+                    
+                <MenuItem 
+                    Header="100MB" 
+                    IsCheckable="True" 
+                    Command="{Binding LargeTestCommand}" 
+                    StaysOpenOnClick="True"
+                    Click="MenuItemTestSize_Clicked"/>
+                </MenuItem>
+            </Menu>
+
+            <Label 
             Content="ZPEEDY"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Row="0"
+            Grid.Row="1"
             FontSize="65"
             FontFamily="Georgia"/>
 
-        <Label 
+            <Label 
             Content="TEST YOUR DOWNLOAD SPEED"
-            Grid.Row="0" 
+            Grid.Row="1" 
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             FontSize="12"
             FontFamily="Georgia"
             FontWeight="Thin" />
 
-        <Label 
+            <Label 
             Content="{Binding Result}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Row="1"
+            Grid.Row="2"
             FontSize="50"
             FontFamily="Georgia"/>
 
-        <Label 
+            <Label 
             Content="{Binding ErrorMessage}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Row="1"
+            Grid.Row="2"
             FontSize="15"
             FontFamily="Georgia"/>
 
-        <Image 
-            Grid.Row="1"
+            <Image 
+            Grid.Row="2"
             Visibility="{Binding LoaderVisibility}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -71,9 +101,9 @@
             animatedGif:ImageBehavior.AnimateInDesignMode="False"
             animatedGif:ImageBehavior.AutoStart="True" />
 
-        <Button 
+            <Button 
             IsEnabled="True"
-            Grid.Row="2" 
+            Grid.Row="3" 
             Height="50"
             Width="200"
             FontSize="40"
@@ -86,10 +116,10 @@
             Content="Start"
             FontFamily="Georgia"/>
 
-        <Button 
+            <Button 
             Visibility="{Binding LoaderVisibility}"
             IsEnabled="{Binding LoaderVisibility}"
-            Grid.Row="2" 
+            Grid.Row="3" 
             Height="50"
             Width="200"
             BorderThickness="0"
@@ -101,14 +131,15 @@
             FontSize="40"
             FontFamily="Georgia"/>
 
-        <Label 
+            <Label 
             Content="Loader icons provided by loading.io"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Row="3"
+            Grid.Row="4"
             FontSize="10"
             FontWeight="Light"
             FontStyle="Italic"
             FontFamily="Georgia"/>
-    </Grid>
+        </Grid>
+    
 </Window>
