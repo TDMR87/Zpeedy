@@ -54,7 +54,8 @@ namespace Zpeedy_core_3
         #region Methods
         /// <summary>
         /// Starts downloading data from the internet 
-        /// and calculates the download speed.
+        /// and calculates the download speed depending on the 
+        /// time it took to download the bytes.
         /// </summary>
         private async void ExecuteSpeedTest()
         {
