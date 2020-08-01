@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NuGet.Frameworks;
 using System.Threading.Tasks;
-using testSubject = Zpeedy_core_3;
+using Zpeedy_core_3;
 
 namespace Zpeedy_tests
 {
@@ -13,7 +13,7 @@ namespace Zpeedy_tests
         [TestMethod]
         public async Task CalculateDownloadSpeed()
         {
-            double testResult = await testSubject.Calculations.CalculateDownloadSpeed(10, 10_000);
+            double testResult = await Calculations.CalculateDownloadSpeed(10, 10_000);
 
             // Is not null
             Assert.IsNotNull(testResult);
