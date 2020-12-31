@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>stopwatch1.ico</ApplicationIcon>
+    <AssemblyName>Zpeedy</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

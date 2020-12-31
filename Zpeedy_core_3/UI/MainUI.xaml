@@ -10,7 +10,7 @@
         Background="#70aee0"
         Title="{StaticResource AppTitle}" 
         Height="500" 
-        Width="400" 
+        Width="350" 
         ResizeMode="NoResize" 
         WindowStyle="SingleBorderWindow" 
         WindowStartupLocation="CenterScreen">
